@@ -45,57 +45,69 @@ export const RegisterScreen = () => {
 
 	return (
 		<>
-			<h3 className='auth__title'>Register</h3>
+			<h3 className='auth__title'>Create an acount</h3>
 
 			<form
 				className='animate__animated animate__fadeIn animate__fast'
 				onSubmit={handleRegister}>
 				{msgErr && <div className='auth__alert-error'>{msgErr}</div>}
-				<input
-					type='text'
-					placeholder='Name'
-					name='name'
-					className='auth__input'
-					autoComplete='off'
-					value={name}
-					onChange={handleInputChange}
-				/>
+				<div className='input-group'>
+					<label>First name</label>
+					<input
+						type='text'
+						placeholder='Name'
+						name='name'
+						className='auth__input'
+						autoComplete='off'
+						value={name}
+						onChange={handleInputChange}
+					/>
+				</div>
+				<div className='input-group'>
+					<label>Email</label>
+					<input
+						type='text'
+						placeholder='Email'
+						name='email'
+						className='auth__input'
+						autoComplete='off'
+						value={email}
+						onChange={handleInputChange}
+					/>
+				</div>
+				<div className='input-group'>
+					<label>Password</label>
+					<input
+						type='password'
+						placeholder='Password'
+						name='password'
+						className='auth__input'
+						value={password}
+						onChange={handleInputChange}
+					/>
+				</div>
+				<div className='input-group'>
+					<label>Confirm password</label>
+					<input
+						type='password'
+						placeholder='Confirm password'
+						name='password2'
+						className='auth__input'
+						value={password2}
+						onChange={handleInputChange}
+					/>
+				</div>
 
-				<input
-					type='text'
-					placeholder='Email'
-					name='email'
-					className='auth__input'
-					autoComplete='off'
-					value={email}
-					onChange={handleInputChange}
-				/>
-
-				<input
-					type='password'
-					placeholder='Password'
-					name='password'
-					className='auth__input'
-					value={password}
-					onChange={handleInputChange}
-				/>
-
-				<input
-					type='password'
-					placeholder='Confirm password'
-					name='password2'
-					className='auth__input'
-					value={password2}
-					onChange={handleInputChange}
-				/>
-
-				<button type='submit' className='btn btn-primary btn-block mb-5'>
+				<button
+					type='submit'
+					className='btn btn-primary btn-block mb-5 submit mt-5'>
 					Register
 				</button>
-
-				<Link to='/auth/login' className='link'>
-					Already registered?
-				</Link>
+				<div style={{ paddingTop: '20px' }}>
+					<Link to='/auth/login' className='link'>
+						Already registered? <span>Sign in</span>
+					</Link>
+				</div>
 			</form>
 		</>
 	);

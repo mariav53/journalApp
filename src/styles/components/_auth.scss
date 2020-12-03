@@ -1,8 +1,8 @@
 
 .auth__main {
     align-items: center;
-    background-color: $primary;
-    display: flex;
+    background-color: $mint;
+      display: flex;
     justify-content: center;
     margin: 0px;
     height: 100vh;
@@ -10,32 +10,35 @@
 }
 
 .auth__box-container {
-    background-color: white;
-    box-shadow: 0px 3px $dark-grey;
+    background-color: $sandy;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     border-radius: 2px;
-    padding: 20px;
-    width: 250px;
+    padding: 20px 30px;
+    width: 380px;
 }
 
 
 .auth__title {
-    color: darken($color: $primary, $amount: 20);
+    color: $olive;
     margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 20px;
 }
 
 .auth__input {
     color: $dark-grey;
     border: 0px;
-    border-bottom: 1px solid $light-grey;
     font-size: 16px;
     margin-bottom: 10px;
     height: 20px;
-    width: 100%;
-
-    transition: border-bottom .3s ease;
+    width: 95%;
+    transition: border .3s ease;
+    padding: 1.18em .3em 0.5em .7em;
+    border-radius: 2px;
     
     &:focus {
-        border-bottom: 1px solid $primary;
+        border: 1px solid #1e413d29;
         outline: none;
     }
 }
@@ -48,6 +51,11 @@
     padding-top: 20px;
     padding-bottom: 20px;
     width: 100%;
+    color: $olive;
+    p{
+        font-weight: 600;
+    }
+    
 }
 
 
@@ -60,3 +68,49 @@
     margin-bottom: 10px;
     padding: 5px
 }
+
+.input-group{
+    position:relative;
+  }
+  .input-group>label{
+    padding: 0 0.2em;
+    position: absolute;
+    top: .1em;
+    left: .7em;
+    font-size: 11px;
+    color:$grey-light;
+  }
+  
+  .link {
+    color: $olive;
+    span{
+        
+        font-weight: 600;
+    }
+}
+
+#or {
+    position: relative;
+    width: 100%;
+    height:30px;
+    font-size: 12px;
+    line-height: 50px;
+    text-align: center;
+  }
+  
+  #or::before,
+  #or::after {
+    position: absolute;
+    width: 130px;
+    height: 1px;
+    top: 24px;
+    background-color: #aaa;
+  }
+  
+  #or::before {
+    left: 0;
+  }
+  
+  #or::after {
+    right: 0;
+  }

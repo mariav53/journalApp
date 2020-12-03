@@ -18,7 +18,7 @@ export const startNewNote = () => {
 			//path de a bd donde queremos guardar la nota
 			const doc = await db.collection(`${uid}/journal/notes`).add(newNote);
 			dispatch(activeNote(doc.id, newNote));
-			dispatch(addNewNote(doc.id, newNote));
+			/* 	dispatch(addNewNote(doc.id, newNote)); */
 		} catch (error) {
 			console.error('[startNewNote]', error);
 		}
@@ -73,9 +73,14 @@ export const startSaveNote = (note) => {
 			console.log({ noteToFirestore });
 
 			await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore);
-
+			dispatch(addNewNote(note.id, noteToFirestore));
 			dispatch(refreshNote(note.id, noteToFirestore));
-			Swal.fire('Saved', note.title, 'success');
+			Swal.fire({
+				title: 'Saved',
+				text: note.title,
+				icon: 'success',
+				confirmButtonColor: '#45a5ab',
+			});
 		} catch (error) {
 			console.error('[startSaveNote]', error);
 		}
@@ -121,12 +126,30 @@ export const startUpload = (file) => {
 };
 
 export const startDelete = (id) => {
-	return async (dispatch, getState) => {
+	return (dispatch, getState) => {
 		try {
-			const { uid } = getState().auth;
-			await db.doc(`${uid}/journal/notes/${id}`).delete();
+			Swal.fire({
+				title: 'Are you sure?',
+				text: 'Do you want to delete this note?',
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#45a5ab',
+				cancelButtonColor: '#dc3545',
+				confirmButtonText: 'Yes, delete it!',
+			}).then(async (result) => {
+				if (result.isConfirmed) {
+					const { uid } = getState().auth;
+					await db.doc(`${uid}/journal/notes/${id}`).delete();
 
-			dispatch(deleteNote(id));
+					dispatch(deleteNote(id));
+					Swal.fire({
+						title: 'Deleted!',
+						text: 'Your note has been deleted.',
+						icon: 'success',
+						confirmButtonColor: '#45a5ab',
+					});
+				}
+			});
 		} catch (error) {
 			console.error('[startDelete]', error);
 		}

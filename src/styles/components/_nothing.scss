@@ -1,15 +1,51 @@
 
 .nothing__main-content {
     align-items: center;
-    background-color: $primary;
+    background-color: #fdf9f4;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
 
     p {
         text-align: center;
+    }
+}
+
+
+.nothing__main-content-center{
+    padding: 40px;
+
+    color: $olive;
+
+    border-radius: 2px;
+
+    p{
+        font-size: 21px;
+        font-weight: 400;
+        font-family: 'Open sans', sans-serif;
+
+    }
+}
+
+
+.nothing__new-entry {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+    color: $olive;
+
+    i{
+        color: $mint;
+    }
+    span{
+        font-weight: 400;
+        font-size: 18px;
     }
 }
 

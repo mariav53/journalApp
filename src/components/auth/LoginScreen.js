@@ -25,38 +25,47 @@ export const LoginScreen = () => {
 
 	return (
 		<>
-			<h3 className='auth__title'>Login</h3>
+			<h3 className='auth__title'>Sign in</h3>
 
 			<form
 				className='animate__animated animate__fadeIn animate__fast'
 				onSubmit={handleLogin}>
-				<input
-					type='text'
-					placeholder='Email'
-					name='email'
-					className='auth__input'
-					autoComplete='off'
-					value={email}
-					onChange={handleInputChange}
-				/>
-
-				<input
-					type='password'
-					placeholder='Password'
-					name='password'
-					className='auth__input'
-					value={password}
-					onChange={handleInputChange}
-				/>
+				<div className='input-group'>
+					<label>Email</label>
+					<input
+						type='text'
+						placeholder='Email'
+						name='email'
+						className='auth__input'
+						autoComplete='off'
+						value={email}
+						onChange={handleInputChange}
+					/>
+				</div>
+				<div className='input-group'>
+					<label>Email</label>
+					<input
+						type='password'
+						placeholder='Password'
+						name='password'
+						className='auth__input'
+						value={password}
+						onChange={handleInputChange}
+					/>
+				</div>
 
 				<button
 					type='submit'
-					className='btn btn-primary btn-block'
+					className='btn btn-primary btn-block submit mt-5'
 					disabled={loading}>
-					Login
+					Sign in
 				</button>
 
-				<div className='auth__social-networks'>
+				<div id='or' className='mt-1'>
+					OR
+				</div>
+
+				<div className='auth__social-networks mb-5'>
 					<p>Login with social networks</p>
 
 					<div className='google-btn' onClick={handleGoogleLogin}>
@@ -74,7 +83,7 @@ export const LoginScreen = () => {
 				</div>
 
 				<Link to='/auth/register' className='link'>
-					Create new account
+					Don't have an acount? <span>Sign up</span>
 				</Link>
 			</form>
 		</>

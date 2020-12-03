@@ -3,7 +3,7 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { activeNote, startDelete } from '../../actions/notes';
 
-export const JournalEntry = ({ id, date, title, body, url }) => {
+export const JournalEntryCarousel = ({ id, date, title, body, url }) => {
 	const dispatch = useDispatch();
 	const noteDate = moment(date);
 
@@ -18,18 +18,7 @@ export const JournalEntry = ({ id, date, title, body, url }) => {
 	};
 
 	return (
-		<div className='journal__entry pointer' onClick={handleEntryClick}>
-			<div className='journal__entry-date-box'>
-				<div
-					className={`${
-						!url
-							? 'journal__entry-date-box-content'
-							: 'journal__entry-date-box-content-img'
-					}`}>
-					<h4>{moment(noteDate).format('DD MMM')}</h4>
-					<span>{moment(noteDate).format('ddd')}</span>
-				</div>
-			</div>
+		<div className='journal__entry pointer carousel' onClick={handleEntryClick}>
 			{url ? (
 				<div
 					className='journal__content journal__entry-picture'
@@ -40,12 +29,30 @@ export const JournalEntry = ({ id, date, title, body, url }) => {
 						backgroundPosition: 'center',
 						position: 'relative',
 					}}>
+					<div
+						className={`${
+							!url
+								? 'journal__entry-date-box-content'
+								: 'journal__entry-date-box-content-img'
+						}`}>
+						<h4>{moment(noteDate).format('DD MMM')}</h4>
+						<span>{moment(noteDate).format('ddd')}</span>
+					</div>
 					<div className='delete-entry' onClick={(e) => handleDeleteNote(e)}>
 						<i className='fas fa-trash-alt'></i>
 					</div>
 				</div>
 			) : (
 				<div className='journal__content main journal__entry-body'>
+					<div
+						className={`${
+							!url
+								? 'journal__entry-date-box-content'
+								: 'journal__entry-date-box-content-img'
+						}`}>
+						<h4>{moment(noteDate).format('DD MMM')}</h4>
+						<span>{moment(noteDate).format('ddd')}</span>
+					</div>
 					<div className='delete-entry' onClick={(e) => handleDeleteNote(e)}>
 						<i className='fas fa-trash-alt'></i>
 					</div>
