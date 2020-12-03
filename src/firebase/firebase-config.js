@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const firebaseConfig = {
-	apiKey: 'AIzaSyDFFBc7zIIE9p_rCPEra1D12IFuEpVf71M',
+	apiKey: process.env.REACT_APP_API_KEY,
 	authDomain: 'journalapp-mern.firebaseapp.com',
 	databaseURL: 'https://journalapp-mern.firebaseio.com',
 	projectId: 'journalapp-mern',

@@ -13,7 +13,7 @@ const NoteImage = ({ url }) => {
 				className='small'
 				src={url}
 				onClick={handleShowDialog}
-				alt='no image'
+				alt='not available'
 			/>
 
 			{isOpen && (
