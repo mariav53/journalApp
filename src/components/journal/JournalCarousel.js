@@ -17,7 +17,7 @@ const JournalCarousel = ({ notes }) => {
 			autoPlay
 			centerMode={centerModeInit}
 			showArrows={true}
-			className='hola'>
+			showThumbs={false}>
 			{notes.map((note) => (
 				<JournalEntryCarousel
 					key={note.id}

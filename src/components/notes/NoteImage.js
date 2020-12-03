@@ -21,7 +21,12 @@ const NoteImage = ({ url }) => {
 					<span class='noteImage__modal-close' onClick={handleShowDialog}>
 						&times;
 					</span>
-					<img class='noteImage__modal-img' id='img01' src={url} />
+					<img
+						class='noteImage__modal-img'
+						id='img01'
+						src={url}
+						alt='note modal'
+					/>
 					<div id='caption'></div>
 				</div>
 			)}
